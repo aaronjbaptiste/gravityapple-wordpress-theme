@@ -1,0 +1,10 @@
+{
+    "require": {
+        "wp-sync-db/wp-sync-db": "dev-master"
+    },
+    "extra": {
+        "installer-paths": {
+            "../../plugins/{$name}/": ["type:wordpress-plugin"]
+        }
+    }
+}
