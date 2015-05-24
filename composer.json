@@ -1,6 +1,7 @@
 {
     "require": {
-        "wp-sync-db/wp-sync-db": "dev-master"
+        "wp-sync-db/wp-sync-db": "dev-master",
+        "wp-sync-db/wp-sync-db-media-files": "dev-master"
     },
     "extra": {
         "installer-paths": {
