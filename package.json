@@ -1,0 +1,14 @@
+{
+  "name": "gravityapple-theme",
+  "version": "1.0.0",
+  "author": "Aaron John-Baptiste <gravityapple@gmail.com>",
+  "homepage": "http://gravityapple.com",
+  "private": true,
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-sass": "^2.0.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.7.4"
+  }
+}
