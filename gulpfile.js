@@ -24,7 +24,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('sass', function () {
-    gulp.src('sass/*.scss')
+    gulp.src('sass/**/*.scss')
         .pipe(plumber({
             errorHandler: onError
         }))
@@ -43,7 +43,7 @@ gulp.task('js', function () {
 });
 
 gulp.task('browser-sync', function() {
-    browserSync.init(["style.css", "js/*.js"], {
+    browserSync.init(["style.css", "js/*.js", "./**/*.php"], {
         proxy: "http://gravityapple.dev"
     });
 });
@@ -53,7 +53,7 @@ gulp.task('default', function () {
     gulp.run("sass");
     gulp.run("css");
     gulp.run("js");
-    gulp.watch("sass/*.scss", ['sass']);
+    gulp.watch("sass/**/*.scss", ['sass']);
     gulp.watch("style.css", ['css']);
     gulp.watch("js/*.js", ['js']);
 });
