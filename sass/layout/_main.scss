@@ -1,0 +1,22 @@
+.site {
+    border: 10 * $px solid #ffffff;
+    border-top: none;
+}
+
+.site-header {
+    background: $color__background-header;
+    margin-bottom: 10 * $px;
+    position: relative;
+}
+
+.site-branding {
+    display: inline-block;
+}
+
+.site-description {
+    text-align: right;
+}
+
+#content {
+    background: blue;
+}

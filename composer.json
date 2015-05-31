@@ -1,7 +1,8 @@
 {
     "require": {
         "wp-sync-db/wp-sync-db": "dev-master",
-        "wp-sync-db/wp-sync-db-media-files": "dev-master"
+        "wp-sync-db/wp-sync-db-media-files": "dev-master",
+        "automattic/jetpack": "3.5.3"
     },
     "extra": {
         "installer-paths": {

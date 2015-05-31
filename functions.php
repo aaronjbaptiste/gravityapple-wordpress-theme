@@ -14,7 +14,6 @@ if ( ! function_exists( 'gravityapple_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function gravityapple_setup() {
-
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -67,6 +66,9 @@ function gravityapple_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	add_theme_support( 'site-logo' ); 
+	
 }
 endif; // gravityapple_setup
 add_action( 'after_setup_theme', 'gravityapple_setup' );
@@ -141,3 +143,5 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+add_filter( 'jetpack_development_mode', '__return_true' );

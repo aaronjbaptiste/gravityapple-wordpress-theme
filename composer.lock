@@ -4,8 +4,34 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0a9e0439dd3ef65c094b6027e5442da4",
+    "hash": "947d4591cc400f5e2a71a3a23df24166",
     "packages": [
+        {
+            "name": "automattic/jetpack",
+            "version": "3.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Automattic/jetpack.git",
+                "reference": "07bf09d986c3e8d35f583965c60aaaebef1722d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Automattic/jetpack/zipball/07bf09d986c3e8d35f583965c60aaaebef1722d5",
+                "reference": "07bf09d986c3e8d35f583965c60aaaebef1722d5",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Jetpack supercharges your self‑hosted WordPress site with the awesome cloud power of WordPress.com",
+            "homepage": "http://jetpack.me/",
+            "time": "2015-05-06 16:12:09"
+        },
         {
             "name": "composer/installers",
             "version": "v1.0.21",
