@@ -43,6 +43,7 @@ function gravityapple_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'gravityapple' ),
+		'cat-menu' => esc_html__( 'Cat Menu', 'gravityapple' )
 	) );
 
 	/*
@@ -67,11 +68,42 @@ function gravityapple_setup() {
 		'default-image' => '',
 	) ) );
 
-	add_theme_support( 'site-logo' ); 
+	add_image_size( 'site-logo', 100, 0 );
+    add_theme_support( 'site-logo', array(
+        'header-text' => array(
+            'site-title',
+            'site-description'
+        ),
+        'size' => 'site-logo',
+    ));
+
+    add_theme_support( 'featured-content', array(
+        'filter'     => 'gravityapple_featured_content',
+        'max_posts'  => 1,
+        'post_types' => array( 'post', 'page' ),
+    ));
+
+    add_theme_support( 'post-thumbnails' ); 
 	
 }
 endif; // gravityapple_setup
 add_action( 'after_setup_theme', 'gravityapple_setup' );
+
+function gravityapple_get_featured_content() {
+    return apply_filters( 'gravityapple_featured_content', array() );
+}
+
+function gravityapple_has_featured_content() {
+    $featured_posts = apply_filters( 'gravityapple_featured_content', array() );
+    if ( is_array( $featured_posts ) && 1 <= count( $featured_posts ) )
+        return true;
+ 
+    return false;
+}
+
+if ( is_home() && gravityapple_has_featured_content() ) {
+    wp_enqueue_script( 'gravityapple-slider-script', get_template_directory_uri() . '/js/awesome-slider.js', array( 'jquery' ) );
+}
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -143,5 +175,3 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-add_filter( 'jetpack_development_mode', '__return_true' );

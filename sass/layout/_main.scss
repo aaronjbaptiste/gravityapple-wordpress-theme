@@ -17,6 +17,15 @@
     text-align: right;
 }
 
-#content {
-    background: blue;
+.site-logo-link {
+    float: left;
+}
+
+.wp-post-image {
+    display: block;
+    width: 100%;
+}
+
+#menu-main-category-filter li {
+    display: inline-block;
 }
