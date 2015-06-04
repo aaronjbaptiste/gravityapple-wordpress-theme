@@ -482,11 +482,11 @@ a {
     position: relative;
     margin: 0.6rem 0.6rem 0.6rem 0; }
   .main-navigation a {
-    display: block;
+    display: inline;
     text-decoration: none;
     color: #468a50;
     background-color: #6ad26a;
-    padding: 0.1em 1em; }
+    padding: 0.4em 0.6em 0.2em 0.6em; }
 
 /* Small menu. */
 .menu-toggle,
@@ -611,13 +611,22 @@ a {
 # Content
 --------------------------------------------------------------*/
 .site {
-  border: 0.625rem solid #ffffff;
-  border-top: none; }
+  border: 0.8125rem solid #ffffff;
+  border-top: none;
+  border-bottom: none; }
+
+@font-face {
+  font-family: Intro;
+  src: url(fonts/Intro.otf); }
 
 .site-header {
   background: #5eba67;
-  margin-bottom: 0.625rem;
-  position: relative; }
+  margin-bottom: 0.8125rem;
+  position: relative;
+  font-family: Intro; }
+
+.site-header h1, .site-header h2 {
+  font-weight: normal; }
 
 .site-branding {
   display: inline-block; }
@@ -628,12 +637,118 @@ a {
 .site-logo-link {
   float: left; }
 
-.wp-post-image {
+.featured-content {
+  position: relative;
+  max-height: 31.25rem;
+  overflow: hidden; }
+
+.free-wall {
+  margin: 0.8125rem 0 0.8125rem 0; }
+
+.featured-content img {
   display: block;
   width: 100%; }
 
+.featured-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 5rem;
+  font-size: 1.875rem;
+  text-transform: uppercase;
+  font-family: Intro;
+  max-width: 25%; }
+
+.featured-title h1, .featured-title h2 {
+  font-weight: normal;
+  margin: 0;
+  line-height: 1; }
+
+.featured-title h1 {
+  font-size: 1.875rem;
+  color: #6d6d80; }
+
+.featured-title h2 {
+  font-size: 5rem;
+  color: #353d34; }
+
+.portfolio-entry {
+  margin: 0;
+  display: block; }
+
+.portfolio-entry .inner-entry {
+  position: absolute;
+  left: 50%;
+  top: 35%; }
+
+.portfolio-entry h1, .portfolio-entry h2 {
+  font-weight: normal; }
+
+.site-logo, .site-title {
+  -webkit-filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.3)); }
+
+.site-title {
+  -webkit-filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.3)); }
+
+.portfolio-entry .cover {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  opacity: 0;
+  font-family: Intro; }
+
+.portfolio-entry .cover:hover {
+  opacity: 1; }
+
+.portfolio-entry .overlay {
+  opacity: 0.7;
+  background: #000000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute; }
+
+.portfolio-entry h2 {
+  position: relative;
+  left: -50%;
+  display: block;
+  margin: 0;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: underline; }
+
+.portfolio-entry .portfolio-entry-media {
+  width: 100%;
+  height: 100%; }
+
+.portfolio-entry a {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.portfolio-entry img {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
 #menu-main-category-filter li {
   display: inline-block; }
+
+.site-footer {
+  background-color: #353d34;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  text-transform: uppercase; }
+
+.site-footer a {
+  color: white; }
 
 /*--------------------------------------------------------------
 ## Posts and pages

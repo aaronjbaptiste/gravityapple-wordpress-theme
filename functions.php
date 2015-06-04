@@ -80,7 +80,7 @@ function gravityapple_setup() {
     add_theme_support( 'featured-content', array(
         'filter'     => 'gravityapple_featured_content',
         'max_posts'  => 1,
-        'post_types' => array( 'post', 'page' ),
+        'post_types' => array( 'post', 'page', "portfolio" ),
     ));
 
     add_theme_support( 'post-thumbnails' ); 
@@ -104,6 +104,73 @@ function gravityapple_has_featured_content() {
 if ( is_home() && gravityapple_has_featured_content() ) {
     wp_enqueue_script( 'gravityapple-slider-script', get_template_directory_uri() . '/js/awesome-slider.js', array( 'jquery' ) );
 }
+
+function register() {
+
+    // Define post type labels
+    $labels = array(
+        'name'                  => __( 'Portfolio', 'ga' ),
+        'singular_name'         => __( 'Portfolio Item', 'ga' ),
+        'add_new'               => __( 'Add New Item', 'ga' ),
+        'add_new_item'          => __( 'Add New Portfolio Item', 'ga' ),
+        'edit_item'             => __( 'Edit Portfolio Item', 'ga' ),
+        'new_item'              => __( 'Add New Portfolio Item', 'ga' ),
+        'view_item'             => __( 'View Item', 'ga' ),
+        'search_items'          => __( 'Search Portfolio', 'ga' ),
+        'not_found'             => __( 'No portfolio items found', 'ga' ),
+        'not_found_in_trash'    => __( 'No portfolio items found in trash', 'ga' )
+    );
+    
+    // Define post type args
+    $args = array(
+        'labels'            => $labels,
+        'public'            => true,
+        'supports'          => array( 'title', 'editor', 'thumbnail', 'revisions', 'post-formats' ),
+        'capability_type'   => 'post',
+        'rewrite'           => array("slug" => "portfolio-item"), // Permalinks format
+        'has_archive'       => false,
+        'menu_icon'         => 'dashicons-portfolio',
+    ); 
+    
+    // Register the post type
+    register_post_type( 'portfolio', $args );
+
+    // Define portfolio category taxonomy labels
+    $cat_labels = array(
+        'name'                          => __( 'Portfolio Categories', 'ga' ),
+        'singular_name'                 => __( 'Portfolio Category', 'ga' ),
+        'search_items'                  => __( 'Search Portfolio Categories', 'ga' ),
+        'popular_items'                 => __( 'Popular Portfolio Categories', 'ga' ),
+        'all_items'                     => __( 'All Portfolio Categories', 'ga' ),
+        'parent_item'                   => __( 'Parent Portfolio Category', 'ga' ),
+        'parent_item_colon'             => __( 'Parent Portfolio Category:', 'ga' ),
+        'edit_item'                     => __( 'Edit Portfolio Category', 'ga' ),
+        'update_item'                   => __( 'Update Portfolio Category', 'ga' ),
+        'add_new_item'                  => __( 'Add New Portfolio Category', 'ga' ),
+        'new_item_name'                 => __( 'New Portfolio Category Name', 'ga' ),
+        'separate_items_with_commas'    => __( 'Separate portfolio categories with commas', 'ga' ),
+        'add_or_remove_items'           => __( 'Add or remove portfolio categories', 'ga' ),
+        'choose_from_most_used'         => __( 'Choose from the most used portfolio categories', 'ga' ),
+        'menu_name'                     => __( 'Portfolio Categories', 'ga' ),
+    );
+
+    // Define portfolio category taxonomy args
+    $cat_args = array(
+        'labels'            => $cat_labels,
+        'public'            => true,
+        'show_in_nav_menus' => true,
+        'show_ui'           => true,
+        'show_tagcloud'     => true,
+        'hierarchical'      => true,
+        'rewrite'           => array( 'slug' => 'portfolio-category' ),
+        'query_var'         => true
+    );
+    
+    // Register the portfolio_category taxonomy
+    register_taxonomy( 'portfolio_category', array( 'portfolio' ), $cat_args );
+
+}
+register();
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -142,6 +209,14 @@ function gravityapple_scripts() {
 	wp_enqueue_style( 'gravityapple-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'gravityapple-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+
+    wp_deregister_script( 'jquery' );
+    $jquery_cdn = '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js';
+    wp_enqueue_script( 'jquery', $jquery_cdn, array(), '20130115', true );
+
+    wp_enqueue_script( 'freewall', get_template_directory_uri() . '/lib/js/freewall/freewall.js', array(), '20130115', true );
+
+    wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array(), '20130115', true );
 
 	wp_enqueue_script( 'gravityapple-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 

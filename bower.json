@@ -1,0 +1,7 @@
+{
+  "name": "gravityapple",
+  "version": "1.0.0",
+  "dependencies": {
+    "freewall": "~1.0.5"
+  }
+}

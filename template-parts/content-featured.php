@@ -15,7 +15,13 @@ if ( empty( $slider ) )
 <div class="slider">
     <?php foreach ( $slider as $post ) : setup_postdata( $post ); ?>
         <div class="slide">
+            <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
             <?php the_post_thumbnail(); ?>
+            <div class="featured-title">
+                <h1>Latest:</h1>
+                <h2><?php the_title(); ?></h2>
+            </div>
+            </a>
         </div><!-- .slide -->
     <?php endforeach; ?>
 </div><!-- .slider -->

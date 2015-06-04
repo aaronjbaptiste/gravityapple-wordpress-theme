@@ -58,11 +58,11 @@
 		}
 	}
 	a {
-		display: block;
+		display: inline;
 		text-decoration: none;
 		color: $color__low-light;
 		background-color: $color__high-light;
-		padding: 0.1em 1em;
+		padding: 0.4em 0.6em 0.2em 0.6em;
 	}
 
 	.current_page_item > a,

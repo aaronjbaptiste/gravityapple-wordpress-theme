@@ -12,9 +12,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'gravityapple' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'gravityapple' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'gravityapple' ), 'gravityapple', '<a href="http://gravityapple.com" rel="designer">Aaron John-Baptiste</a>' ); ?>
+			<?php printf( esc_html__( 'Theme %1$s by %2$s', 'gravityapple' ), '<a href="https://github.com/aaronjbaptiste/gravityapple-wordpress-theme">gravityapple</a>', '<a href="https://twitter.com/aaronjbaptiste" rel="designer">Aaron John-Baptiste</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
