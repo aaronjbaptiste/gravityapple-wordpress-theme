@@ -202,6 +202,14 @@ function gravityapple_widgets_init() {
 }
 add_action( 'widgets_init', 'gravityapple_widgets_init' );
 
+function gravityapple_before_post_widget( $content ) {
+    if ( is_singular( array( 'portfolio' ) ) && is_active_sidebar( 'portfolio-1' )) {
+        dynamic_sidebar('portfolio-1');
+    }
+    return $content;
+}
+add_filter( 'the_content', 'gravityapple_before_post_widget' );
+
 /**
  * Enqueue scripts and styles.
  */
@@ -212,9 +220,9 @@ function gravityapple_scripts() {
 
     wp_deregister_script( 'jquery' );
     $jquery_cdn = '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js';
-    wp_enqueue_script( 'jquery', $jquery_cdn, array(), '20130115', true );
+    wp_enqueue_script( 'jquery', $jquery_cdn, array(), '20130115' );
 
-    wp_enqueue_script( 'freewall', get_template_directory_uri() . '/lib/js/freewall/freewall.js', array(), '20130115', true );
+    wp_enqueue_script( 'freewall', get_template_directory_uri() . '/js/lib/freewall/freewall.js', array(), '20130115', true );
 
     wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array(), '20130115', true );
 
@@ -225,6 +233,16 @@ function gravityapple_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'gravityapple_scripts' );
+
+function get_the_category_custompost( $id = false, $tcat = 'category' ) {
+    $categories_list =  get_the_term_list( $id, $tcat );
+    printf( '<span class="portfolio-links">' . esc_html__( '%1$s', 'gravityapple' ) . '</span>', $categories_list );
+
+    $tags_list = get_the_tag_list( '', esc_html__( ', ', 'gravityapple' ) );
+    if ( $tags_list ) {
+        printf( '<span class="tags-links">' . esc_html__( '%1$s', 'gravityapple' ) . '</span>', $tags_list );
+    }
+}
 
 /**
  * Implement the Custom Header feature.

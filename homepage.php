@@ -1,16 +1,8 @@
 <?php
 /**
- * The main template file.
+ * Template Name: Homepage Template
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package GravityApple
  */
-
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -32,6 +24,7 @@ get_header(); ?>
 		<?php if ( $the_query->have_posts() ) : ?>
 			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 					<div class="portfolio-entry brick" style='width:350px;'>
+						<?php get_the_category_custompost($post->ID, 'portfolio_category'); ?>
 						<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 							<?php if ( has_post_thumbnail() ) : ?>
 

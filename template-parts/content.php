@@ -11,17 +11,16 @@
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php gravityapple_posted_on(); ?>
+			<?php gravityapple_entry_footer(); ?>
 		</div><!-- .entry-meta -->
+		<?php the_post_thumbnail(); ?>
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php
 			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'gravityapple' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+			the_content( "READ MORE" );
 		?>
 
 		<?php
@@ -33,6 +32,7 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php gravityapple_entry_footer(); ?>
+		
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+<div class="rule"></div>

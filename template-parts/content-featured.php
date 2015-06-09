@@ -15,6 +15,7 @@ if ( empty( $slider ) )
 <div class="slider">
     <?php foreach ( $slider as $post ) : setup_postdata( $post ); ?>
         <div class="slide">
+            <?php get_the_category_custompost($post->ID, 'portfolio_category'); ?>
             <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
             <?php the_post_thumbnail(); ?>
             <div class="featured-title">

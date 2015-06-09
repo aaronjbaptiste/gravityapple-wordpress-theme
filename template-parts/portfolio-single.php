@@ -10,7 +10,9 @@
 
 		<div class="entry-meta">
 			<?php gravityapple_posted_on(); ?>
+			<?php get_the_category_custompost($post->ID, 'portfolio_category'); ?>
 			<?php gravityapple_entry_footer(); ?>
+
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 

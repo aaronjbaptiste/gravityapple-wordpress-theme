@@ -615,6 +615,9 @@ a {
   border-top: none;
   border-bottom: none; }
 
+.site-content {
+  min-height: 31.25rem; }
+
 @font-face {
   font-family: Intro;
   src: url(fonts/Intro.otf); }
@@ -678,8 +681,10 @@ a {
 
 .portfolio-entry .inner-entry {
   position: absolute;
-  left: 50%;
-  top: 35%; }
+  display: table;
+  height: 100%;
+  width: 100%;
+  padding: 0.9375rem; }
 
 .portfolio-entry h1, .portfolio-entry h2 {
   font-weight: normal; }
@@ -715,19 +720,23 @@ a {
 
 .portfolio-entry h2 {
   position: relative;
-  left: -50%;
-  display: block;
+  display: table-cell;
   margin: 0;
   font-size: 2.5rem;
   text-transform: uppercase;
   color: #ffffff;
-  text-decoration: underline; }
+  text-decoration: underline;
+  vertical-align: middle; }
 
 .portfolio-entry .portfolio-entry-media {
   width: 100%;
   height: 100%; }
 
 .portfolio-entry a {
+  display: block;
+  background: blue; }
+
+.portfolio-entry > a {
   display: block;
   width: 100%;
   height: 100%; }
@@ -749,6 +758,137 @@ a {
 
 .site-footer a {
   color: white; }
+
+.blog .site-content, .single .site-content, .page-template-default .site-content, .archive .site-content, .single-post .site-content, .search .site-content {
+  max-width: 62.5rem;
+  margin: auto; }
+
+.game-row .widget {
+  background: none;
+  text-align: center; }
+
+.blog #primary, .single #primary, .page-template-default #primary, .archive #primary, .single-post #primary, .search #primary {
+  float: left;
+  width: 70%;
+  margin-right: 2.5rem;
+  text-align: justify; }
+
+.page-template-default #primary, .single-portfolio #primary {
+  width: 100%; }
+
+.single-portfolio .wp-post-image {
+  width: 100%; }
+
+.search-form input {
+  font-family: Intro; }
+
+.blog #secondary, .single #secondary, .page-template-default #secondary, .archive #secondary, .single-post #secondary, .search #secondary {
+  float: right;
+  margin-top: 10.5rem; }
+
+.page-header {
+  text-align: left; }
+
+.widget_archive ul {
+  margin: 0;
+  list-style: none;
+  padding: 0; }
+
+.widget_archive ul a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #353d34;
+  font-family: Intro; }
+
+.tagcloud a {
+  text-decoration: none;
+  color: #353d34;
+  text-transform: uppercase;
+  font-family: Intro; }
+
+.widget-title {
+  font-family: Intro;
+  margin-top: 0;
+  font-size: 1.5em; }
+
+.blog #primary h1, .single #primary h1, .page-template-default #primary h1, .archive #primary h1, .single-post #primary h1, .search #primary h1 {
+  font-family: Intro;
+  font-size: 3.125rem; }
+  .blog #primary h1 a, .single #primary h1 a, .page-template-default #primary h1 a, .archive #primary h1 a, .single-post #primary h1 a, .search #primary h1 a {
+    text-decoration: none;
+    color: inherit; }
+  .blog #primary h1 #primary img, .single #primary h1 #primary img, .page-template-default #primary h1 #primary img, .archive #primary h1 #primary img, .single-post #primary h1 #primary img, .search #primary h1 #primary img {
+    width: 100%; }
+
+.posted-on a {
+  text-decoration: none; }
+
+.entry-date {
+  background-color: #353d34;
+  color: white;
+  padding: 10px;
+  font-family: Intro;
+  text-transform: uppercase; }
+
+.cat-links, .tags-links {
+  float: right;
+  margin-left: 0.3125rem; }
+
+.cat-links a, .tags-links a, .portfolio-links a {
+  color: white;
+  padding: 0.625rem 0.9375rem;
+  font-family: Intro;
+  text-transform: uppercase;
+  text-decoration: none; }
+
+.cat-links a {
+  background-color: #a6c8e0; }
+
+.portfolio-links a {
+  background-color: #a6c8e0; }
+
+.featured-content .portfolio-links a {
+  font-size: 30px;
+  padding: 1.25rem 1.875rem; }
+
+.home .portfolio-links {
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+
+.portfolio-links {
+  float: right;
+  margin-left: 0.3125rem; }
+
+.home .tags-links {
+  display: none; }
+
+.tags-links a {
+  background-color: #889cb7; }
+
+.more-link, a.more-link {
+  background: #5eba67;
+  padding: 0.6rem 0.375rem 0.375rem 0.375rem;
+  text-decoration: none;
+  color: white;
+  margin: auto;
+  width: 150px;
+  display: block;
+  text-align: center;
+  font-family: Intro;
+  font-size: 1.1em; }
+
+.widget {
+  background: #e0e0e0;
+  padding: 0.9375rem; }
+
+.rule {
+  border-bottom: 5px solid #889cb7;
+  width: 75%;
+  margin: auto; }
+
+.rule:last-child {
+  display: none; }
 
 /*--------------------------------------------------------------
 ## Posts and pages
